@@ -40,8 +40,7 @@ bazel-bin/example/下生成http_wasm_example.wasm文件
 1. envoy运行
 - 前期准备：
 （1）、envoy执行所需配置文件envoy.yaml。拷贝到/etc下。
-（2）、wasm可执行文件envoy_filter_http_wasm_example.wasm
-（http_wasm_example.wasm重命名）拷贝到/lib下。
+（2）、wasm可执行文件envoy_filter_http_wasm_example.wasm（http_wasm_example.wasm重命名）拷贝到/lib下。
 （3）、http server---nginx，用做实际的http服务器，http客户端curl通过envoy访问。
 （4）、envoy.yaml配置说明：
 ![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/envoy_config.png)

@@ -12,7 +12,7 @@ envoy项目采用bazel项目管理工具进行管理。bazel使用文档：https
 
 1. 在项目根目录下，执行bazel build //source/exe:envoy-static编译envoy项目。
 2. 编译是一个很漫长的过程，本人机器配置略低，物理机cpu主频1.6GHz，虚拟机1cpu4核心，4g内存配置，v1.17.0从上午编译到下午6点。Bazel会根据依赖，下载对应的第三方包，有的包需要访问谷歌，比如：com_github_lyft_protoc_gen_star开源库。
-  ![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/com_github_lyft_protoc_gen_star-lib.png)
+![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/com_github_lyft_protoc_gen_star-lib.png)
 所有依赖包下载成功后，会到源码编译阶段，如下：
 ![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/build_stage.png)
 请耐心等待，期间会出现编译失败，按3提及的方式修改即可。编译成功提示如下：
@@ -46,16 +46,17 @@ bazel-bin/example/下生成http_wasm_example.wasm文件
 （4）、envoy.yaml配置说明：
 ![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/envoy_config.png)
 ![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/envoy_config1.png)
+
 - 运行envoy：
   在envoy项目根目录下执行./bazel-bin/source/exe/envoy-static -c /etc/envoy.yaml
 2. wasm插件demo运行
 - 插件的功能:
  （1）、在ResponseBody中添加hello world内容。
  （2）、在ResponseHeaders中添加头信息。
-![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/alter_responseheaders.png)
+ ![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/alter_responseheaders.png)
 - 验证：
  （1）、验证ResponseHeaders中添加头信息
-![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/verify_alter_responseheaders.png)
+ ![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/verify_alter_responseheaders.png)
  （2）、验证ResponseBody中添加hello world内容
-![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/verify_alter_responsebody.png)
+ ![image](https://github.com/liuqi-sun/Technologyblog/blob/main/envoy/media/envoy_start/verify_alter_responsebody.png)
 注：192.168.2.10开发环境ubuntu 16.04 eth0 IP地址。
